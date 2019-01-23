@@ -71,4 +71,22 @@ var nums = [1,1,2]
 let numsCount = RemoveDuplicates.remove(&nums)
 print("removed duplicates from sorted array: \(nums) numsCount:\(numsCount)")
 
+//MARK: 最大子序和
 
+//4, -3, 5, -2, -1, 2, 6, -2
+//[-2, -1]
+//[1,-1,1]
+print("[-2,1,-3,4,-1,2,1,-5,4] max subarray sum: \(MaxSubArray.maxSum([1,-1,1]))")
+
+//1 -1 1
+
+//1 -1
+
+// 1 max 1
+// -1 max -1
+
+// 1 -1 0 max 1
+
+// 1 max 1
+
+// 1 1 max 1

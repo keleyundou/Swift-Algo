@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9F0B411921F807CF00DD9333 /* RemoveDuplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B411821F807CF00DD9333 /* RemoveDuplicates.swift */; };
+		9F0B411B21F8122F00DD9333 /* MaxSubArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B411A21F8122F00DD9333 /* MaxSubArray.swift */; };
 		9F3C0BEF21EDBE9400CB426A /* LongestCommonPrefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C0BEE21EDBE9400CB426A /* LongestCommonPrefix.swift */; };
 		9F5B50D9217DD8BE006D0E8D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B50D8217DD8BE006D0E8D /* main.swift */; };
 		9F5B50E0217DD8F3006D0E8D /* TwoNumSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B50DF217DD8F3006D0E8D /* TwoNumSum.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		9F0B411821F807CF00DD9333 /* RemoveDuplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveDuplicates.swift; sourceTree = "<group>"; };
+		9F0B411A21F8122F00DD9333 /* MaxSubArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxSubArray.swift; sourceTree = "<group>"; };
 		9F3C0BEE21EDBE9400CB426A /* LongestCommonPrefix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongestCommonPrefix.swift; sourceTree = "<group>"; };
 		9F5B50D5217DD8BE006D0E8D /* Algo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Algo; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F5B50D8217DD8BE006D0E8D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				9F3C0BEE21EDBE9400CB426A /* LongestCommonPrefix.swift */,
 				9F994F0721F6C34900D286BE /* ValidParentheses.swift */,
 				9F0B411821F807CF00DD9333 /* RemoveDuplicates.swift */,
+				9F0B411A21F8122F00DD9333 /* MaxSubArray.swift */,
 			);
 			path = Simple;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				9F5B510321815A98006D0E8D /* ReverseInteger.swift in Sources */,
 				9F5B50D9217DD8BE006D0E8D /* main.swift in Sources */,
 				9F0B411921F807CF00DD9333 /* RemoveDuplicates.swift in Sources */,
+				9F0B411B21F8122F00DD9333 /* MaxSubArray.swift in Sources */,
 				9F5B50E0217DD8F3006D0E8D /* TwoNumSum.swift in Sources */,
 				9F994F0821F6C34900D286BE /* ValidParentheses.swift in Sources */,
 			);
