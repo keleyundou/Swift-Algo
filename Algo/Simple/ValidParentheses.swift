@@ -14,28 +14,32 @@ import Foundation
 
 class ValidParentheses {
     class func isValid(_ s: String) -> Bool {
+//        return method1(s: s)
         return method2(s: s)
-//        var stack: [Character] = []
-//        for item in s {
-//            if item == "(" || item == "[" || item == "{" {
-//                stack.append(item)
-//            } else {
-//                guard !stack.isEmpty else {
-//                    return false
-//                }
-//
-//                if (item == "}" || item == "]" || item == ")") && match(l: stack.last!, r: item) {
-//                    stack.removeLast()
-//                } else {
-//                    return false
-//                }
-//            }
-//        }
-//
-//        guard stack.isEmpty else {
-//            return false
-//        }
-//        return true
+    }
+    
+    class func method1(s: String) -> Bool {
+        var stack: [Character] = []
+        for item in s {
+            if item == "(" || item == "[" || item == "{" {
+                stack.append(item)
+            } else {
+                guard !stack.isEmpty else {
+                    return false
+                }
+                
+                if (item == "}" || item == "]" || item == ")") && match(l: stack.last!, r: item) {
+                    stack.removeLast()
+                } else {
+                    return false
+                }
+            }
+        }
+        
+        guard stack.isEmpty else {
+            return false
+        }
+        return true
     }
     
     class func match(l: Character, r: Character) -> Bool {
