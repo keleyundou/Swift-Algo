@@ -64,3 +64,11 @@ print("Longest Common Prefix: \(LongestCommonPrefix.longestCommonPrefix(commonPr
 //MARK: 有效的括号
 let parentheses = "({})[]"
 print("The Valid Parentheses: \(ValidParentheses.isValid(parentheses))")
+
+//MARK: 从排序数组中删除重复项
+
+var nums = [1,1,2]
+let numsCount = RemoveDuplicates.remove(&nums)
+print("removed duplicates from sorted array: \(nums) numsCount:\(numsCount)")
+
+
