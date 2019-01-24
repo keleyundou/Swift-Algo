@@ -78,15 +78,11 @@ print("removed duplicates from sorted array: \(nums) numsCount:\(numsCount)")
 //[1,-1,1]
 print("[-2,1,-3,4,-1,2,1,-5,4] max subarray sum: \(MaxSubArray.maxSum([1,-1,1]))")
 
-//1 -1 1
-
-//1 -1
-
-// 1 max 1
-// -1 max -1
-
-// 1 -1 0 max 1
-
-// 1 max 1
-
-// 1 1 max 1
+//MARK: 二叉树的最大深度
+//给定二叉树 [3,9,20,null,null,15,7]
+let root: TreeNode = TreeNode(3)
+root.left = TreeNode(9)
+root.right = TreeNode(20)
+root.right?.left = TreeNode(15)
+root.right?.right = TreeNode(7)
+print("Maximum Depth Of Binary Tree: \(MaximumDepthOfBinaryTree.maxDepth(root))")
