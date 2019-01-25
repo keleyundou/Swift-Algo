@@ -89,3 +89,6 @@ print("Maximum Depth Of Binary Tree: \(MaximumDepthOfBinaryTree.maxDepth(root))"
 
 //MARK: 买卖股票最大利润
 print("Max Profit: \(maxProfit2([7, 1, 5, 3, 6, 4]))")
+print("Max Profit: \(maxProfit3([1, 7, 2, 3, 6, 7, 6, 7]))")
+print("Max Profit: \(maxProfit4([1, 7, 2, 3, 6, 7, 6, 7]))")
+print("Max Profit: \(maxProfit5([1, 7, 2, 3, 6, 7, 6, 7]))")
