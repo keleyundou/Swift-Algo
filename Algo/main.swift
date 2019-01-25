@@ -86,3 +86,6 @@ root.right = TreeNode(20)
 root.right?.left = TreeNode(15)
 root.right?.right = TreeNode(7)
 print("Maximum Depth Of Binary Tree: \(MaximumDepthOfBinaryTree.maxDepth(root))")
+
+//MARK: 买卖股票最大利润
+print("Max Profit: \(maxProfit2([7, 1, 5, 3, 6, 4]))")
