@@ -12,7 +12,16 @@
     "testTimeoutsEnabled" : true
   },
   "testTargets" : [
-
+    {
+      "skippedTests" : [
+        "AlgoTests\/testPerformanceExample()"
+      ],
+      "target" : {
+        "containerPath" : "container:Algo.xcodeproj",
+        "identifier" : "9F6FF27A292DEDD400EE2AE9",
+        "name" : "AlgoTests"
+      }
+    }
   ],
   "version" : 1
 }
