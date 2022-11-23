@@ -17,7 +17,7 @@ class LongestCommonPrefix {
 //    LCP(S1 ... Sn)
     class func longestCommonPrefix(_ strs: [String]) -> String {
         let app = LongestCommonPrefix()
-        return app.method4(strs: strs)
+        return app.method2(strs: strs)
     }
     
     //MARK: >>>水平扫描法
@@ -57,9 +57,18 @@ class LongestCommonPrefix {
             
             for j in 1..<strs.count {
                 //strs[j].index(strs[j].startIndex, offsetBy: i.encodedOffset)
+                // https://www.jianshu.com/p/b2183e7e1486
+                #if swift(<5)
                 if i.encodedOffset == strs[j].count || strs[j][i] != c{
                     return String(firstObjct.prefix(i.encodedOffset))
                 }
+                #else
+                let offset = i.utf16Offset(in: firstObjct)
+                if offset == strs[j].count || strs[j][i] != c {
+                    return String(firstObjct.prefix(offset))
+                }
+                #endif
+                
             }
         }
         return firstObjct
