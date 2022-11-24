@@ -15,6 +15,7 @@
     {
       "skippedTests" : [
         "AlgoTests\/testPerformanceExample()",
+        "SlidingWindowTests\/testLongTime()",
         "SlidingWindowTests\/testPerformanceExample()"
       ],
       "target" : {

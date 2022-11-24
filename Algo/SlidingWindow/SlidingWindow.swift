@@ -73,6 +73,7 @@ extension SlidingWindow {
             return len == Int.max ? "" : String(sArr[start..<start+len])
         }
         
+        // 太耗时
         func minWindowV2(_ s: String, _ t: String) -> String {
             var need = [Character: Int]() // 统计t中字符出现的个数
             var window = [Character: Int]() // 统计窗口中的相应字符出现的次数
@@ -85,7 +86,7 @@ extension SlidingWindow {
             var start = 0, len = Int.max
             while right < s.count {
                 // 取字符
-                let tailIndex = s.index(s.startIndex, offsetBy: right)
+                let tailIndex = s.index(s.startIndex, offsetBy: right)// Complexity: O(n)
                 let pushChar = s[tailIndex]
                 
                 right += 1
@@ -116,9 +117,10 @@ extension SlidingWindow {
                 }
             }
             
+            guard len != Int.max else { return "" }
             let upperBound = s.index(s.startIndex, offsetBy: start)
             let lowerBound = s.index(upperBound, offsetBy: len)
-            return len == Int.max ? "" : String(s[upperBound..<lowerBound])
+            return String(s[upperBound..<lowerBound])
         }
     }
 }
