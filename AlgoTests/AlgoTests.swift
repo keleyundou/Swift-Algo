@@ -24,6 +24,27 @@ final class AlgoTests: XCTestCase {
         // Any test you write for XCTest can be annotated as throws and async.
         // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+        let s = "This."
+        var offsetIndex = s.index(s.startIndex, offsetBy: 0)
+        var c = s[offsetIndex]
+        XCTAssertEqual(c, "T")
+        
+        offsetIndex = s.index(s.startIndex, offsetBy: 1)
+        c = s[offsetIndex]
+        XCTAssertEqual(c, "h")
+        
+        offsetIndex = s.index(s.startIndex, offsetBy: 2)
+        c = s[offsetIndex]
+        XCTAssertEqual(c, "i")
+        
+        offsetIndex = s.index(s.startIndex, offsetBy: 3)
+        c = s[offsetIndex]
+        XCTAssertEqual(c, "s")
+        
+        offsetIndex = s.index(s.startIndex, offsetBy: 4)
+        c = s[offsetIndex]
+        XCTAssertEqual(c, ".")
+        
     }
 
     func testPerformanceExample() throws {

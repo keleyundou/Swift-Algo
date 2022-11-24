@@ -38,6 +38,19 @@ final class SlidingWindowTests: XCTestCase {
         XCTAssertEqual(r1, "BANC")
         XCTAssertEqual(r2, "BANC")
     }
+    
+    func testV2() {
+        let s1 = "EBBANCF"
+        let t1 = "ABC"
+        let r1 = solution.minWindowV2(s1, t1)
+        
+        let s2 = "ADOBECODEBANC"
+        let t2 = "ABC"
+        let r2 = solution.minWindowV2(s2, t2)
+        
+        XCTAssertEqual(r1, "BANC")
+        XCTAssertEqual(r2, "BANC")
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
