@@ -154,6 +154,42 @@ extension SlidingWindow {
             }
             return false
         }
-
+        
+        // 438. 找到字符串中所有字母异位词
+        // @see https://leetcode.cn/problems/find-all-anagrams-in-a-string/
+        func findAnagrams(_ s: String, _ p: String) -> [Int] {
+            var res = [Int]()
+            let sArr = Array(s)
+            let need = p.reduce(into: [Character:Int]()){ $0[$1, default: 0] += 1 }
+            var window = [Character:Int]()
+            var left = 0, right = 0
+            var valid = 0
+            
+            while right < sArr.count {
+                let c = sArr[right]
+                right += 1
+                if need.keys.contains(c) {
+                    window[c, default: 0] += 1
+                    if window[c] == need[c] {
+                        valid += 1
+                    }
+                }
+                
+                while right - left >= p.count {
+                    if valid == need.count {
+                        res.append(left)
+                    }
+                    let d = sArr[left]
+                    left += 1
+                    if need.keys.contains(d) {
+                        if window[d] == need[d] {
+                            valid -= 1
+                        }
+                        window[d]! -= 1
+                    }
+                }
+            }
+            return res
+        }
     }
 }

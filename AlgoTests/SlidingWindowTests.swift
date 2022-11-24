@@ -76,6 +76,14 @@ final class SlidingWindowTests: XCTestCase {
         XCTAssertTrue(r1)
         XCTAssertFalse(r2)
     }
+    
+    func testFindAnagrams() {
+        let r1 = solution.findAnagrams("cbaebabacd", "abc")
+        let r2 = solution.findAnagrams("abab", "ab")
+        
+        XCTAssertEqual(r1, [0,6])
+        XCTAssertEqual(r2, [0, 1, 2])
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
