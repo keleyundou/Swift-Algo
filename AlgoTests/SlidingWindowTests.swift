@@ -84,6 +84,17 @@ final class SlidingWindowTests: XCTestCase {
         XCTAssertEqual(r1, [0,6])
         XCTAssertEqual(r2, [0, 1, 2])
     }
+    
+    func testLengthOfLongestSubstring() {
+        let r1 = solution.lengthOfLongestSubstring("abcabcbb")
+        let r2 = solution.lengthOfLongestSubstring("bbbbb")
+        let r3 = solution.lengthOfLongestSubstring("pwwkew")
+        
+        XCTAssertEqual(r1, 3)
+        XCTAssertEqual(r2, 1)
+        XCTAssertEqual(r3, 3)
+        
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

@@ -191,5 +191,26 @@ extension SlidingWindow {
             }
             return res
         }
+        
+        // 3. 无重复字符的最长子串
+        // @see https://leetcode.cn/problems/longest-substring-without-repeating-characters/
+        func lengthOfLongestSubstring(_ s: String) -> Int {
+            let sArr = Array(s)
+            var window = [Character: Int]()
+            var left = 0, right = 0
+            var res = 0
+            while right < sArr.count {
+                let c = sArr[right]
+                right += 1
+                window[c, default: 0] += 1
+                while window[c]! > 1 {
+                    let d = sArr[left]
+                    left += 1
+                    window[d]! -= 1
+                }
+                res = max(res, right-left)
+            }
+            return res
+        }
     }
 }
