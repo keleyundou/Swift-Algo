@@ -23,11 +23,8 @@ extension SlidingWindow {
         func minWindow(_ s: String, _ t: String) -> String {
             let sArr = s.toArray()
             
-            var need = [Character: Int]()
+            let need = t.reduce(into: [Character:Int]()){ $0[$1, default: 0] += 1 }
             var window = [Character: Int]()
-            for c in t {
-                need[c, default: 0] += 1
-            }
             
             var left = 0, right = 0
             var valid = 0
@@ -75,9 +72,8 @@ extension SlidingWindow {
         
         // 太耗时
         func minWindowV2(_ s: String, _ t: String) -> String {
-            var need = [Character: Int]() // 统计t中字符出现的个数
+            let need = t.reduce(into: [Character:Int]()) { $0[$1, default: 0] += 1} // 统计t中字符出现的个数
             var window = [Character: Int]() // 统计窗口中的相应字符出现的次数
-            for c in t { need[c, default: 0] += 1 }
             
             var left = 0, right = 0
             var valid = 0 // 窗口内有效字符个数与t相等时，形成窗口
@@ -127,11 +123,8 @@ extension SlidingWindow {
         // @see https://leetcode.cn/problems/permutation-in-string/
         func checkInclusion(_ s1: String, _ s2: String) -> Bool {
             let sArr = Array(s2)
-            var need = [Character: Int]()
+            let need = s1.reduce(into: [Character:Int]()) { $0[$1, default: 0] += 1 }
             var window = [Character: Int]()
-            for c in s1 {
-                need[c, default: 0] += 1
-            }
             
             var left = 0, right = 0
             var valid = 0

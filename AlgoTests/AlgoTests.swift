@@ -46,6 +46,26 @@ final class AlgoTests: XCTestCase {
         XCTAssertEqual(c, ".")
         
     }
+    
+    func testCharacterCount() {
+        let s = "abc"
+        let charNums = s.reduce(into: [Character:Int]()) { partialResult, c in
+//            if let val = partialResult[c] {
+//                partialResult[c] = val + 1
+//            } else {
+//                partialResult[c] = 1
+//            }
+            partialResult[c, default: 0] += 1
+        }
+        XCTAssertEqual(charNums["a"], 1)
+        XCTAssertEqual(charNums["b"], 1)
+        XCTAssertEqual(charNums["c"], 1)
+        
+        let charNums2 = s.reduce(into: [Character:Int]()) {$0[$1, default: 0] += 1 }
+        XCTAssertEqual(charNums2["a"], 1)
+        XCTAssertEqual(charNums2["b"], 1)
+        XCTAssertEqual(charNums2["c"], 1)
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
