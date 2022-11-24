@@ -17,9 +17,9 @@ extension String {
 }
 
 extension SlidingWindow {
-    // 最小覆盖子串
-    // @see https://leetcode.cn/problems/minimum-window-substring/
     class Solution {
+        // 76. 最小覆盖子串
+        // @see https://leetcode.cn/problems/minimum-window-substring/
         func minWindow(_ s: String, _ t: String) -> String {
             let sArr = s.toArray()
             
@@ -122,5 +122,45 @@ extension SlidingWindow {
             let lowerBound = s.index(upperBound, offsetBy: len)
             return String(s[upperBound..<lowerBound])
         }
+        
+        // 567. 字符串的排列
+        // @see https://leetcode.cn/problems/permutation-in-string/
+        func checkInclusion(_ s1: String, _ s2: String) -> Bool {
+            let sArr = Array(s2)
+            var need = [Character: Int]()
+            var window = [Character: Int]()
+            for c in s1 {
+                need[c, default: 0] += 1
+            }
+            
+            var left = 0, right = 0
+            var valid = 0
+            while right < sArr.count {
+                let c = sArr[right]
+                right += 1
+                if need.keys.contains(c) {
+                    window[c, default: 0] += 1
+                    if window[c] == need[c] {
+                        valid += 1
+                    }
+                }
+                
+                while right - left >= s1.count {
+                    if valid == need.count {
+                        return true
+                    }
+                    let d = sArr[left]
+                    left += 1
+                    if need.keys.contains(d) {
+                        if window[d] == need[d] {
+                            valid -= 1
+                        }
+                        window[d]! -= 1
+                    }
+                }
+            }
+            return false
+        }
+
     }
 }
