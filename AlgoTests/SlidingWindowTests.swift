@@ -95,6 +95,16 @@ final class SlidingWindowTests: XCTestCase {
         XCTAssertEqual(r3, 3)
         
     }
+    
+    func testFindRepeatedDnsSequences() {
+        let s = SlidingWindowAdditions()
+        let r = s.findRepeatedDnaSequences("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT")
+        XCTAssertTrue(r.contains("AAAAACCCCC"))
+        XCTAssertTrue(r.contains("CCCCCAAAAA"))
+        
+        let r2 = s.findRepeatedDnaSequencesV2("AAAAAAAAAAAAA")
+        XCTAssertTrue(r2.contains("AAAAAAAAAA"))
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

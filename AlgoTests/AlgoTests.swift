@@ -66,6 +66,11 @@ final class AlgoTests: XCTestCase {
         XCTAssertEqual(charNums2["b"], 1)
         XCTAssertEqual(charNums2["c"], 1)
     }
+    
+    func testPow() {
+        let r = pow(Decimal(2), 3)
+        print(r)
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

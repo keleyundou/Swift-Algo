@@ -214,3 +214,76 @@ extension SlidingWindow {
         }
     }
 }
+
+class SlidingWindowAdditions {
+    // 187. 重复的DNA序列
+    // @see https://leetcode.cn/problems/repeated-dna-sequences/
+    // 暴力解封
+    func findRepeatedDnaSequences(_ s: String) -> [String] {
+        let sArr = Array(s)
+        let len = sArr.count
+        var seen = [String]()
+        var res = Set<String>()
+        var i = 0
+        while i + 10 < len {
+            let substr = String(sArr[i..<i+10])
+            if seen.contains(substr) {
+                res.insert(substr)
+            } else {
+                seen.append(substr)
+            }
+            i += 1
+        }
+        return Array(res)
+    }
+    
+    func findRepeatedDnaSequencesV2(_ s: String) -> [String] {
+        let sArr = Array(s)
+        // 字符映射为数字
+        var nums = [Int](repeating: -1, count: s.count)
+        for (i, e) in sArr.enumerated() {
+            switch e {
+            case "A": nums[i] = 0
+            case "G": nums[i] = 1
+            case "C": nums[i] = 2
+            case "T": nums[i] = 3
+            default:
+                print("value is \(e)")
+            }
+        }
+        
+//        var seen = Set<Int>()
+//        var res = Set<String>()
+        var result = [Int: String]()
+        
+        let L = 10
+        let R = 4
+        let RL = Int(pow(Decimal(R), L-1).description)!
+        var windowHash = 0
+        var left = 0, right = 0
+        while right < nums.count {
+            windowHash = R * windowHash + nums[right]
+            right += 1
+            
+            if right - left == L {
+//                if seen.contains(windowHash) {
+//                    res.insert(String(sArr[left..<right]))
+//                } else {
+//                    seen.insert(windowHash)
+//                }
+                if result.keys.contains(windowHash) {
+                    result[windowHash] = String(sArr[left..<right])
+                } else {
+                    result[windowHash] = ""
+                }
+                windowHash = windowHash - nums[left] * RL
+                left += 1
+            }
+        }
+        
+//        return Array(res)
+        return Array(result.values.filter({
+            $0.isEmpty == false
+        }))
+    }
+}
