@@ -16,6 +16,7 @@
       "skippedTests" : [
         "AlgoTests\/testPerformanceExample()",
         "BinarySearchTests\/testPerformanceExample()",
+        "RandomizedSetTests\/testPerformanceExample()",
         "SlidingWindowTests\/testLongTime()",
         "SlidingWindowTests\/testPerformanceExample()"
       ],
