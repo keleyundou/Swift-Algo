@@ -71,6 +71,17 @@ final class AlgoTests: XCTestCase {
         let r = pow(Decimal(2), 3)
         print(r)
     }
+    
+    func testEach() {
+        traverse(arr: [1, 2, 3, 4, 5], 0)
+    }
+    
+    private func traverse(arr: [Int], _ i: Int) {
+        if i == arr.count { return }
+        print("前序：\(arr[i])")
+        traverse(arr: arr, i+1)
+        print("后序：\(arr[i])")
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
