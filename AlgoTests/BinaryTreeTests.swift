@@ -41,9 +41,13 @@ final class BinaryTreeTests: XCTestCase {
         root.left = TreeNode(2, TreeNode(1), TreeNode(3))
         root.right = TreeNode(7, TreeNode(6), TreeNode(9))
         
-        let r = solution.invertTree(root)
+        let r = solution.invertTree(root.copy() as? TreeNode)
         let rr = printTreeNodeWithLevelTraverse(r)
         XCTAssertEqual(rr, [4,7,2,9,6,3,1])
+        
+        let r2 = solution.invertTree2(root.copy() as? TreeNode)
+        let rr2 = printTreeNodeWithLevelTraverse(r2)
+        XCTAssertEqual(rr2, [4,7,2,9,6,3,1])
         
     }
     

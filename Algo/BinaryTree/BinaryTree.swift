@@ -9,7 +9,7 @@
 import Foundation
 
 class BinaryTree {
-    class TreeNode {
+    class TreeNode: NSObject, NSCopying {
         let val: Int
         var left: TreeNode?
         var right: TreeNode?
@@ -18,6 +18,13 @@ class BinaryTree {
             self.val = val
             self.left = left
             self.right = right
+        }
+        
+        func copy(with zone: NSZone? = nil) -> Any {
+            let copyObj = TreeNode(val)
+            copyObj.left = left?.copy() as? TreeNode
+            copyObj.right = right?.copy() as? TreeNode
+            return copyObj
         }
     }
     
@@ -63,6 +70,7 @@ class BinaryTree {
         
         // 226. 翻转二叉树
         // @see https://leetcode.cn/problems/invert-binary-tree/
+        // 遍历模式
         func invertTree(_ root: TreeNode?) -> TreeNode? {
             if let root = root {
                 let tmp = root.left
@@ -74,5 +82,14 @@ class BinaryTree {
             return root
         }
         
+        // 分解问题模式
+        func invertTree2(_ root: TreeNode?) -> TreeNode? {
+            guard let root = root else { return nil }
+            let leftNode = invertTree2(root.left)
+            let rightNode = invertTree2(root.right)
+            root.left = rightNode
+            root.right = leftNode
+            return root
+        }
     }
 }
