@@ -60,5 +60,19 @@ class BinaryTree {
             traverse(root?.left, depth + 1)
             traverse(root?.right, depth + 1)
         }
+        
+        // 226. 翻转二叉树
+        // @see https://leetcode.cn/problems/invert-binary-tree/
+        func invertTree(_ root: TreeNode?) -> TreeNode? {
+            if let root = root {
+                let tmp = root.left
+                root.left = root.right
+                root.right = tmp
+                let _ = invertTree(root.left)
+                let _ =  invertTree(root.right)
+            }
+            return root
+        }
+        
     }
 }
