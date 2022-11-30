@@ -117,6 +117,30 @@ final class BinaryTreeTests: XCTestCase {
         }
     }
     
+    func testFlatten() {
+        let root = TreeNode(1)
+        root.left = TreeNode(2, TreeNode(3), TreeNode(4))
+        root.right = TreeNode(5, nil, TreeNode(6))
+        solution.flatten(root)
+        
+        var p: TreeNode? = root
+        var index = 0
+        while p?.right != nil {
+            let val = p!.val
+            switch index {
+            case 0: XCTAssertEqual(val, 1); XCTAssertNil(p?.left)
+            case 1: XCTAssertEqual(val, 2); XCTAssertNil(p?.left)
+            case 2: XCTAssertEqual(val, 3); XCTAssertNil(p?.left)
+            case 3: XCTAssertEqual(val, 4); XCTAssertNil(p?.left)
+            case 4: XCTAssertEqual(val, 5); XCTAssertNil(p?.left)
+            case 5: XCTAssertEqual(val, 6); XCTAssertNil(p?.left)
+            default: fatalError("error")
+            }
+            p = p?.right
+            index += 1
+        }
+    }
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {

@@ -122,5 +122,26 @@ class BinaryTree {
             traverse(right?.left, right?.right)
             traverse(left?.right, right?.left)
         }
+        
+        // 114. 二叉树展开为链表
+        // @see https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/
+        func flatten(_ root: TreeNode?) {
+            guard let root = root else { return }
+            
+            flatten(root.left)
+            flatten(root.right)
+            
+            let l = root.left
+            let r = root.right
+            
+            root.left = nil
+            root.right = l
+            
+            var p: TreeNode? = root
+            while p?.right != nil {
+                p = p?.right
+            }
+            p?.right = r
+        }
     }
 }
