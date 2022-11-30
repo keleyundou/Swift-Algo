@@ -28,6 +28,19 @@ class BinaryTree {
         }
     }
     
+    class Node {
+        var val: Int
+        var left: Node?
+        var right: Node?
+        var next: Node?
+        init(_ val: Int, _ left: Node? = nil, _ right: Node? = nil, _ next: Node? = nil) {
+            self.val = val
+            self.left = left
+            self.right = right
+            self.next = next
+        }
+    }
+        
     class Solution {
         // 层序遍历
         func levelTraverse(_ root: TreeNode?) {
@@ -90,6 +103,24 @@ class BinaryTree {
             root.left = rightNode
             root.right = leftNode
             return root
+        }
+        
+        // 116. 填充每个节点的下一个右侧节点指针
+        // @see https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/
+        func connect(_ root: Node?) -> Node? {
+            guard let root = root else { return nil }
+            traverse(root.left, root.right)
+            return root
+        }
+        
+        func traverse(_ left: Node?, _ right: Node?) {
+            if left == nil || right == nil {
+                return
+            }
+            left?.next = right
+            traverse(left?.left, left?.right)
+            traverse(right?.left, right?.right)
+            traverse(left?.right, right?.left)
         }
     }
 }

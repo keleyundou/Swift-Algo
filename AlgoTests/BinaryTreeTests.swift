@@ -12,6 +12,7 @@ final class BinaryTreeTests: XCTestCase {
     
     typealias Solution = BinaryTree.Solution
     typealias TreeNode = BinaryTree.TreeNode
+    typealias Node = BinaryTree.Node
     let solution = Solution()
 
     override func setUpWithError() throws {
@@ -69,6 +70,51 @@ final class BinaryTreeTests: XCTestCase {
             }
         }
         return res
+    }
+    
+    func testConnect() {
+        let root = Node(1)
+        root.left = Node(2, Node(4), Node(5))
+        root.right = Node(3, Node(6), Node(7))
+        let r = solution.connect(root)
+        
+        let rr = printAll(r)
+        print("[connect]: \(rr)")
+        XCTAssertEqual(rr[0] as! Int, 1)
+        XCTAssertEqual(rr[1] as! String, "#")
+        XCTAssertEqual(rr[2] as! Int, 2)
+        XCTAssertEqual(rr[3] as! Int, 3)
+        XCTAssertEqual(rr[4] as! String, "#")
+        XCTAssertEqual(rr[5] as! Int, 4)
+        XCTAssertEqual(rr[6] as! Int, 5)
+        XCTAssertEqual(rr[7] as! Int, 6)
+        XCTAssertEqual(rr[8] as! Int, 7)
+        XCTAssertEqual(rr[9] as! String, "#")
+        
+        
+        func printAll(_ root: Node?) -> [Any] {
+            guard let root = root else { return [] }
+            var res = [Any]()
+            var queue = [Node]()
+            queue.append(root)
+            while !queue.isEmpty {
+                for _ in 0..<queue.count {
+                    let node = queue.removeFirst()
+                    res.append(node.val)
+                    if node.next == nil {   
+                        res.append("#")
+                    }
+                    
+                    if let leftNode = node.left {
+                        queue.append(leftNode)
+                    }
+                    if let rightNode = node.right {
+                        queue.append(rightNode)
+                    }
+                }
+            }
+            return res
+        }
     }
     
     func testPerformanceExample() throws {
